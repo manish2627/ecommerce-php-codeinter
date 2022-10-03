@@ -16,24 +16,24 @@
 	<script src="themes/js/less.js" type="text/javascript"></script> -->
 	
 <!-- Bootstrap style --> 
-    <link id="callCss" rel="stylesheet" href="<?php base_url()?>assets/themes/bootshop/bootstrap.min.css" media="screen"/>
-    <link href="<?php base_url()?>assets/themes/css/base.css" rel="stylesheet" media="screen"/>
+    <link id="callCss" rel="stylesheet" href="<?php echo base_url()?>assets/themes/bootshop/bootstrap.min.css" media="screen"/>
+    <link href="<?php echo base_url()?>assets/themes/css/base.css" rel="stylesheet" media="screen"/>
 <!-- Bootstrap style responsive -->	
-	<link href="<?php base_url()?>assets/themes/css/bootstrap-responsive.min.css" rel="stylesheet"/>
-	<link href="<?php base_url()?>assets/themes/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url()?>assets/themes/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+	<link href="<?php echo base_url()?>assets/themes/css/font-awesome.css" rel="stylesheet" type="text/css">
 <!-- Google-code-prettify -->	
-	<link href="<?php base_url()?>assets/themes/js/google-code-prettify/prettify.css" rel="stylesheet"/>
+	<link href="<?php echo base_url()?>assets/themes/js/google-code-prettify/prettify.css" rel="stylesheet"/>
 <!-- fav and touch icons -->
-    <link rel="shortcut icon" href="themes/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php base_url()?>assets/themes/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php base_url()?>assets/themes/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php base_url()?>assets/themes/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="<?php base_url()?>assets/themes/images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="<?php echo base_url()?>themes/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url()?>assets/themes/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url()?>assets/themes/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url()?>assets/themes/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="<?php echo base_url()?>assets/themes/images/ico/apple-touch-icon-57-precomposed.png">
 	<style type="text/css" id="enject"></style>
-  </head>
-  <body>
+</head>
+<body>
 <div id="header">
-<div class="container">
+<div class="container-fluid">
 <div id="welcomeLine" class="row">
 	<div class="span6">Welcome!<strong> User</strong></div>
 	<div class="span6">
@@ -56,7 +56,7 @@
 	<span class="icon-bar"></span>
 </a>
   <div class="navbar-inner">
-    <a class="brand" href="index.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+    <a class="brand" href="index.html"><img src="<?php base_url()?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
 		<form class="form-inline navbar-search" method="post" action="products.html" >
 		<input id="srchFld" class="srchTxt" type="text" />
 		  <select class="srchTxt">
