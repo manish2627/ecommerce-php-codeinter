@@ -34,7 +34,7 @@
 <body>
 <div id="header">
 <div class="container-fluid">
-<div id="welcomeLine" class="row">
+<!-- <div id="welcomeLine" class="row">
 	<div class="span6">Welcome!<strong> User</strong></div>
 	<div class="span6">
 	<div class="pull-right">
@@ -47,9 +47,9 @@
 		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span> </a> 
 	</div>
 	</div>
-</div>
+</div> -->
 <!-- Navbar ================================================== -->
-<div id="logoArea" class="navbar">
+<div id="logoArea" class="navbar my-1">
 <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
 	<span class="icon-bar"></span>
 	<span class="icon-bar"></span>
@@ -74,8 +74,16 @@
 	 <li class=""><a href="normal.html">Delivery</a></li>
 	 <li class=""><a href="contact.html">Contact</a></li>
 	 <li class="">
-	 <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
-	<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+		<?php if($this->session->userdata('email')) { ?>
+
+	 <a href="<?php echo base_url('login/logout')?>" role="button"  style="padding-right:0"><span class="btn btn-large btn-success">Logout</span></a>
+		<?php }else{?>
+	 <a href="<?php echo base_url('login')?>" role="button"  style="padding-right:0"><span class="btn btn-large btn-success">login</span></a>
+	 <!-- <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">login</span></a> -->
+	 <?php }?>
+
+				<!-- login model  -->
+	<!-- <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3>Login Block</h3>
@@ -83,24 +91,55 @@
 		  <div class="modal-body">
 			<form class="form-horizontal loginFrm">
 			  <div class="control-group">								
-				<input type="text" id="inputEmail" placeholder="Email">
+				<input type="text" id="email" placeholder="Email">
 			  </div>
 			  <div class="control-group">
-				<input type="password" id="inputPassword" placeholder="Password">
+				<input type="password" id="password" placeholder="Password">
 			  </div>
-			  <div class="control-group">
-				<label class="checkbox">
-				<input type="checkbox"> Remember me
-				</label>
-			  </div>
+			
 			</form>		
-			<button type="submit" class="btn btn-success">Sign in</button>
+			<button type="submit" id="user_login" class="btn btn-success">Sign in</button>
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 		  </div>
-	</div>
+	</div> -->
 	</li>
     </ul>
   </div>
 </div>
 </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+       $(document).ready(function() {
+                    $(" #user_login").click(function(e) {
+                        e.preventDefault();
+                        //  console.log("hello");
+                        // var email= $(this).closest("tr").find('.product_delete_id').val();
+                        var email= $("#email").val();
+                        var password= $("#password").val();
+                        console.log(email);
+                        console.log(password);
+
+						
+						jQuery.ajax({
+
+							type:"POST",
+							url:"<?php echo base_url('login/user_login')?>",
+							
+							data:{
+								email:email,
+								password:password
+							},
+							success:function(res){
+								alert("succes");
+							}
+							
+						});
+
+                     
+                            
+
+                    });
+                });
+</script>

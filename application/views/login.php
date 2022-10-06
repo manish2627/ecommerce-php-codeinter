@@ -5,7 +5,7 @@
 
 	<div class="span9">
     <ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url('')?>">Home</a> <span class="divider">/</span></li>
 		<li class="active">Login</li>
     </ul>
 	<h3> Login</h3>	
@@ -35,28 +35,31 @@
 			<!-- <div class="well"> -->
 			<!-- <h5>ALREADY REGISTERED ?</h5> -->
 			<!-- <form> -->
-                
-        <?php echo form_open('Welcome/login', ['class'=>'form-horizontal', 'method'=>'POST'])  ?>
+				
+			<?php echo form_open('login/user_login', ['class'=>'form-horizontal', 'method'=>'POST'])  ?>
+			<?php if($this->session->userdata('msg')) { echo '<div class="alert alert-warning" role="alert">'.$this->session->userdata('msg').'</div>'; $this->session->unset_userdata('msg'); }?>
 			  <div class="control-group">
 				<label class="control-label" for="inputEmail1">Email</label>
 				<div class="controls">
-				  <input class="span3"  type="text" id="inputEmail1" name="email" placeholder="Email">
+				  <input class="span3"  type="text" name="email" id="inputEmail1" placeholder="Email">
+				  <?php echo form_error('email');?>
 				</div>
 			  </div>
 			  <div class="control-group">
 				<label class="control-label" for="inputPassword1">Password</label>
 				<div class="controls">
-				  <input type="password" class="span3"  id="inputPassword1" name="password" placeholder="Password">
+				  <input type="password" class="span3" name="password"  id="inputPassword1" placeholder="Password">
+				  <?php echo form_error('password');?>
 				</div>
 			  </div>
 			  <div class="control-group">
 				<div class="controls">
-				  <button type="submit" name="login" class="btn">Sign in</button> <a href="forgetpass.html">Forget password?</a>
+				  <button type="submit" class="btn">Sign in</button> <a href="forgetpass.html">Forget password?</a>
 				</div>
 			  </div>
-              <?php echo form_close()?>
 			<!-- </form> -->
-		<!-- </div> -->
+			<?php echo form_close()?>
+		</div>
 		</div>
 	</div>	
 	
@@ -64,3 +67,4 @@
 </div></div>
 </div>
 <!-- MainBody End ============================= -->
+

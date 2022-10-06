@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Welcome extends CI_Controller {
 
 	public function index()
-	{
+	{   $this->load->library('session');
 		$this->load->view('header');
 		$this->load->view('banner');
 		$this->load->view('sidebar');
@@ -26,19 +26,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 		
 	}
-	public function login(){
-		// $this->load->helper('form');
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('login');
-		$this->load->view('footer');
-	    // if(isset($this->input->post())){
-		// 	echo "yes";
-
-		// }
-		
-	}
-
+	
 	public function signup(){
 		// $this->load->helper('form');
 		
@@ -49,6 +37,7 @@ class Welcome extends CI_Controller {
 		$phone = $this->input->post('phone');
 		$password = $this->input->post('password');
 		$dob = $this->input->post('dob');
+
 		$this->load->library('form_validation');	
 
 		$this->form_validation->set_rules('fname','First Name','required');

@@ -53,6 +53,8 @@ $route['default_controller'] = 'welcome';
 
 // $route['^(?!other|controller).*'] = 'welcome/$0';
 $route['admin'] = 'admin';
+$route['admin/category'] = 'category';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

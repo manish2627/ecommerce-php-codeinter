@@ -5,7 +5,7 @@
 
 	<div class="span9">
     <ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li><a href="<?php echo base_url('')?>">Home</a> <span class="divider">/</span></li>
 		<li class="active">Registration</li>
     </ul>
 	<h3> Registration</h3>	

@@ -1,5 +1,5 @@
 <?php 
-define('base_url()', 'http://127.0.0.1/ci/');
+// define('base_url()', 'http://127.0.0.1/ci/');
 
 
 // $nav_menu = [
@@ -13,7 +13,7 @@ $nav_menu = [
     [
        'menu_name'=>'Category',
        'sub_menu' => [
-           ['submenu_name' => 'All Category','url' => base_url().'/admin/category/all_category.php'],
+           ['submenu_name' => 'All Category','url' => base_url('admin/category')],
            ['submenu_name' => 'Add new Category','url' =>base_url().'/admin/category/add_new_category.php']
        ]
    ],
@@ -226,7 +226,7 @@ $nav_menu = [
             <li class="nav-item dropdown no-arrow">
                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">></a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="<?= base_url()?>/admin/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="">Logout</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?php echo base_url('login/logout')?>">Logout</a>
                     </div>
                 </div>
             </li>
