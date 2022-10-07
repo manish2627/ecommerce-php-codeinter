@@ -63,7 +63,48 @@ class Category extends CI_Controller
         }
     }
 
-    public function add_form()
-    {
+   public function edit($id){
+    if ($this->input->post('update')) {
+        $this->load->library('form_validation');
+
+            $this->form_validation->set_rules('cat_name', 'category Name', 'required');
+            $this->form_validation->set_rules('cat_slug', 'category slug', 'required');
+            if ($this->form_validation->run() == false) {
+
+                $data = $this->Category_model->getby_id($id);
+                $this->load->view('admin/header');
+                $this->load->view('admin/category/update_category', ['data'=>$data]);
+                $this->load->view('admin/footer');
+            } else {
+
+                $category_name = $this->input->post('cat_name');
+                $category_slug = $this->input->post('cat_slug');
+                $category_status = $this->input->post('cat_status');
+               
+                $data = [
+                    'category_name' =>$category_name,
+                    'category_slug' =>$category_slug,
+                    'status' => $category_status,
+                    'user_id' => $this->session->userdata['userid']
+                ];
+
+                print_r($data);
+
+                $this->Category_model->updateby_id($id, $data);
+                 
+               redirect('admin/category');
+            }
+        
     }
+    else
+    {
+    
+    $data = $this->Category_model->getby_id($id);
+    $this->load->view('admin/header');
+    $this->load->view('admin/category/update_category', ['data'=>$data]);
+    $this->load->view('admin/footer');
+    // print_r($data);
+    }
+
+   }
 }

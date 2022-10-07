@@ -55,6 +55,7 @@ $route['default_controller'] = 'welcome';
 $route['admin'] = 'admin';
 $route['admin/category'] = 'category';
 $route['admin/category/add'] = 'category/add';
+$route['admin/category/edit/(:num)'] = 'category/edit/$1';
 
 
 

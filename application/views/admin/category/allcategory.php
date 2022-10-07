@@ -49,22 +49,23 @@
                                                 
                                                     
                                                     <td><?php 
-                                                    $status =  $data->status;
-                                                    if ($Status ='1') {
-                                                            echo "active";
-                                                        } else {
+                                                    $status = $data->status;
+                                                   
+                                                    if (number_format($status) ==  0 ) {
                                                             echo "deactive";
+                                                        } else {
+                                                            echo "active";
                                                         } 
                                                         ?></td>
 
                                                     <td>
                                                         <div class="row">
                                                             <!-- Button trigger modal for update form-->
-                                                            <form id="form" action="category_update.php" method="GET">
-                                                                <input type="hidden" name="cat_update_id" value="<?php  ?>">
+                                                            <!-- <form id="form" action="category_update.php" method="GET">
+                                                                <input type="hidden" name="cat_update_id" value="<?php  ?>"> -->
 
-                                                                <button type="submit" class="btn-sm btn-primary  " data-toggle="modal" data-target="#cat_update_Modal"> edit</button>
-                                                            </form>
+                                                                <a href="<?= base_url('admin/category/edit/'.$data->category_id)?>"  class="btn-sm btn-primary"> edit</a>
+                                                            <!-- </form> -->
                                                             <input type="hidden" name="cat_delete_id" class="cat_delete_id" value="<? ?>">
                                                             <a href="javascript:void(0)" name="category_delete_btn" class="btn-sm mx-1 btn-danger category_delete_btn ">Delete</a>
 
