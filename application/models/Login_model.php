@@ -21,12 +21,12 @@ class Login_model extends CI_Model{
 
         $res = $this->db->get('users');
 
-        return $res->num_rows();
+        
+
+        return $res->row();
 
     }
-    public function ad(){
-        echo "fwvfvbfbb";
-    }
+  
    
 }
 

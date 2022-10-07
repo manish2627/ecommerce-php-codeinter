@@ -7,8 +7,8 @@ class Category_model extends CI_Model{
         return $res->result();
 
     }
-    public function add_user($data){
-        $this->db->insert('users',$data);
+    public function add_category($data){
+        $this->db->insert('category_table',$data);
         
         return $this->db->insert_id();
         

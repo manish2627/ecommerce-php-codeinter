@@ -21,7 +21,7 @@ class Admin extends CI_Controller
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
-            $this->load->view('admin/login');
+           redirect('Admin/admin_login');
         }
         else
         {
@@ -62,13 +62,18 @@ class Admin extends CI_Controller
 			} else {
 				// echo "validation is true ";
 				$this->load->model('Login_model');
-				$count = $this->Login_model->user_login($email, $password);
+				$count = $this->Login_model->admin_login($email, $password);
+				// echo "<pre>";
+				// print_r($count);
+				// exit();
 
-				if ($count == 1) {
+
+				if ($count) {
 					
 					$this->session->set_userdata('email', $email);
-					$this->session->set_userdata('isloggedin', '1');
-					redirect('admin/dashboard');
+					$this->session->set_userdata('userid', $count->user_id);
+					$this->session->set_userdata('isloggedin', TRUE);
+					redirect('Admin/dashboard');
 				} else {
 
 					$this->session->set_userdata('msg', "please check input details and try again..");
@@ -81,12 +86,13 @@ class Admin extends CI_Controller
 
 	
 
-	// public function category(){
-
-	// 	$this->load->model('category_model');
+	public function logout(){
+		$res = $this->session->sess_destroy();
+		
+			redirect('Admin');
 		
 
-	// }
+	}
 
 
 

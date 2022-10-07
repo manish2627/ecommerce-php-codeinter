@@ -14,7 +14,7 @@ $nav_menu = [
        'menu_name'=>'Category',
        'sub_menu' => [
            ['submenu_name' => 'All Category','url' => base_url('admin/category')],
-           ['submenu_name' => 'Add new Category','url' =>base_url().'/admin/category/add_new_category.php']
+           ['submenu_name' => 'Add new Category','url' =>base_url('admin/category/add')]
        ]
    ],
     [
@@ -84,7 +84,7 @@ $nav_menu = [
     <hr class="sidebar-divider my-0">
 
     <ul class="navbar-nav text-light" id="accordionSidebar">
-        <li class="nav-item"><a class="nav-link active" href="<?= site_url('Admin/index');?>"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<?= site_url('Admin/dashboard');?>"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
 
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -226,7 +226,7 @@ $nav_menu = [
             <li class="nav-item dropdown no-arrow">
                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">></a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="<?= base_url()?>/admin/profile.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?php echo base_url('login/logout')?>">Logout</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="<?php echo base_url('admin/logout')?>">Logout</a>
                     </div>
                 </div>
             </li>

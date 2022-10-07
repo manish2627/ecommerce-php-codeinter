@@ -45,6 +45,7 @@ class Login extends CI_Controller {
 			// echo "validation is true ";
 			$this->load->model('Login_model');
 			$count = $this->Login_model->user_login($email,$password);
+		
 
 				if($count == 1){
 					echo "success";
@@ -76,6 +77,7 @@ class Login extends CI_Controller {
 
 	}
 
+	
 }
 	
 
