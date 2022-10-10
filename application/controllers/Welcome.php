@@ -2,12 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Category_model');
+
+	}
 
 	public function index()
-	{   $this->load->library('session');
+
+	{   $category = $this->Category_model->get_data();
+		$this->load->library('session');
 		$this->load->view('header');
 		$this->load->view('banner');
-		$this->load->view('sidebar');
+		$this->load->view('sidebar',['all_category'=>$category]);
 		$this->load->view('home');
 		$this->load->view('footer');
 
@@ -20,8 +28,9 @@ class Welcome extends CI_Controller {
 
 	public function register(){
 		// $this->load->helper('form');
+		$category = $this->Category_model->get_data();
 		$this->load->view('header');
-		$this->load->view('sidebar');
+		$this->load->view('sidebar',['all_category'=>$category]);
 		$this->load->view('register');
 		$this->load->view('footer');
 		

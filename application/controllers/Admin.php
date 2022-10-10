@@ -15,6 +15,8 @@ class Admin extends CI_Controller
 
 		$this->isLoggedIn();
 	}
+
+	
 	function isLoggedIn()
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
@@ -33,7 +35,7 @@ class Admin extends CI_Controller
 
 	{
 		if (!$this->session->userdata('isloggedin')) {
-			$this->load->view('admin/login');
+			redirect('admin/admin_login');
 		} else {
 			$this->load->model('User_model');
 			$data = $this->User_model->get_data();
@@ -47,7 +49,7 @@ class Admin extends CI_Controller
 	public function admin_login()
 	{
 		if ($this->session->userdata('isloggedin')) {
-			redirect('admin/dashboard');
+			redirect('admin/admin_login');
 		} else {
 
 			$email = $this->input->post('email');

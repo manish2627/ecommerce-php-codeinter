@@ -20,8 +20,8 @@ $nav_menu = [
     [
        'menu_name'=>'Products',
        'sub_menu' => [
-           ['submenu_name' => 'All Products','url' => base_url().'/admin/product/all_products.php'],
-           ['submenu_name' => 'Add new Product','url' => base_url().'/admin/product/add_new_product.php']
+           ['submenu_name' => 'All Products','url' => base_url('admin/product')],
+           ['submenu_name' => 'Add new Product','url' => base_url('admin/product/add')]
        ]
    ],
     [

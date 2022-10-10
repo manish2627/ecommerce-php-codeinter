@@ -9,19 +9,27 @@ class Category extends CI_Controller
 
         parent::__construct();
         $this->load->model('Category_model');
+       
     }
 
     public function index()
-    {
+
+    {    if (!$this->session->userdata('isloggedin')) {
+        redirect('admin/admin_login');
+    } else{
 
         $data = $this->Category_model->get_data();
 
         $this->load->view('admin/header');
         $this->load->view("admin/category/allcategory", ['category_data' => $data]);
         $this->load->view('admin/footer');
-    }
+    }}
     public function add()
-    {
+
+    {   
+        if (!$this->session->userdata('isloggedin')) {
+            redirect('admin/admin_login');
+		} else{
 
         if ($this->input->post('add_new_category')) {
             
@@ -62,8 +70,13 @@ class Category extends CI_Controller
             $this->load->view('admin/footer');
         }
     }
+    }
 
    public function edit($id){
+
+    if (!$this->session->userdata('isloggedin')) {
+        redirect('admin/admin_login');
+    } else{
     if ($this->input->post('update')) {
         $this->load->library('form_validation');
 
@@ -107,4 +120,5 @@ class Category extends CI_Controller
     }
 
    }
+}
 }

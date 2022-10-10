@@ -57,7 +57,8 @@ $route['admin/category'] = 'category';
 $route['admin/category/add'] = 'category/add';
 $route['admin/category/edit/(:num)'] = 'category/edit/$1';
 
-
+$route['admin/product'] = 'product';
+$route['admin/product/add'] = 'product/add';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

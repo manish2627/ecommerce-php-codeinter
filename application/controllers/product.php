@@ -13,17 +13,41 @@ class Product extends CI_Controller
 
     public function index()
     {
+        if (!$this->session->userdata('isloggedin')) {
+            // $this->load->view('admin/login');
+            redirect('admin/admin_login');
+        } else {
 
-        $data = $this->Category_model->get_data();
+            $products = [];
+            $category = $this->load->model('Category_model');
 
-        $this->load->view('admin/header');
-        $this->load->view("admin/category/allcategory", ['category_data' => $data]);
-        $this->load->view('admin/footer');
+            //get all products here 
+
+            foreach ($this->Product_model->get_products() as $product) {
+
+                // print_r($product);
+                $category_name = $this->Category_model->getby_id($product['category_id'])->category_name;
+                $product['category_name'] = $category_name;
+                array_push($products, $product);
+            };
+            // echo "<pre>";
+            // print_r($products);
+
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/product/all_product', ['products' => $products]);
+            $this->load->view('admin/footer');
+        }
     }
-    public function add()
-    {
 
-        if ($this->input->post('add_new_category')) {
+    public function add()
+
+    {   
+        if (!$this->session->userdata('isloggedin')) {
+            redirect('admin/admin_login');
+		} else{
+
+        if ($this->input->post('add_new_product')) {
             
             $this->load->library('form_validation');
 
@@ -58,10 +82,9 @@ class Product extends CI_Controller
         } else {
 
             $this->load->view('admin/header');
-            $this->load->view('admin/category/add_new_category');
+            $this->load->view('admin/product/add_product');
             $this->load->view('admin/footer');
         }
     }
-
-    
+    }
 }

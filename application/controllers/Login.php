@@ -7,15 +7,16 @@ class Login extends CI_Controller {
 	{  
 		parent::__construct();
 		$this->load->library('form_validation');	
+		$this->load->model('Category_model');
 		
 		
 	}
 	public function index(){
 
 	
-	
+		$category = $this->Category_model->get_data();
 		$this->load->view('header');
-		$this->load->view('sidebar');
+		$this->load->view('sidebar',['all_category'=>$category]);
 		$this->load->view('login');
 		$this->load->view('footer');
 	 
