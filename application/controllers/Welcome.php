@@ -11,11 +11,31 @@ class Welcome extends CI_Controller {
 
 	public function index()
 
-	{   $category = $this->Category_model->get_data();
+	{  
+		$products = [];
+		$this->load->model('Product_model');
+		$this->load->model('Category_model');
+
+
+		//get all products here 
+		$category = $this->Category_model->get_data();
+		$product['all_category'] = $category;
+		array_push($products, $product);
+
+		foreach ($this->Product_model->get_products() as $product) {
+
+			// print_r($product);
+			
+			$product['images'] = $this->Product_model->getby_id($product['product_id']);
+			array_push($products, $product);
+		};
+		echo"<pre>";
+		print_r($products);
+		exit();
 		$this->load->library('session');
 		$this->load->view('header');
 		$this->load->view('banner');
-		$this->load->view('sidebar',['all_category'=>$category]);
+		$this->load->view('sidebar',['all_category'=>$products]);
 		$this->load->view('home');
 		$this->load->view('footer');
 

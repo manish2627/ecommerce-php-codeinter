@@ -10,7 +10,8 @@
     <body id="page-top">
        
         <div class="container">
-            <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+            <!-- <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data"> -->
+                <?= form_open('admin/product/add',['class'=>'form-horizontal','method'=>"POST", 'enctype'=>"multipart/form-data"])?>
                 <fieldset>
 
                    
@@ -18,7 +19,8 @@
                     <div class="form-group row ">
                         <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
                         <div class="col-md-4">
-                            <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+                            <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md"  type="text">
+                            <?= form_error('product_name')?>
 
                         </div>
                     </div>
@@ -27,6 +29,7 @@
                         <label class="col-md-4 control-label" for="product_slug">PRODUCT SLUG</label>
                         <div class="col-md-4">
                             <input id="product_slug" name="product_slug" placeholder="PRODUCT SLUG" class="form-control input-md"  type="text">
+                            <?= form_error('product_slug')?>
 
                         </div>
                     </div>
@@ -44,7 +47,7 @@
                                 
                                 
                                 foreach ($all_category as $category) { ?>
-                                    <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?></option>
+                                    <option value="<?= $category->category_id ?>"><?= $category->category_name ?></option>
                                 <?php } ?>
 
                             </select>
@@ -55,7 +58,8 @@
                       <div class="form-group row">
                         <label class="col-md-4 control-label" for="price">Price</label>
                         <div class="col-md-4">
-                            <input id="price" name="price" placeholder="price" class="form-control input-md" required="" type="text">
+                            <input id="price" name="price" placeholder="price" class="form-control input-md"  type="text">
+                            <?= form_error('price')?>
 
                         </div>
                     </div>
@@ -63,7 +67,8 @@
                     <div class="form-group row">
                         <label class="col-md-4 control-label" for="price_discount">Discount Price</label>
                         <div class="col-md-4">
-                            <input id="price_discount" name="price_discount" placeholder="DISCOUNT" class="form-control input-md" required="" type="text">
+                            <input id="price_discount" name="price_discount" placeholder="DISCOUNT" class="form-control input-md"  type="text">
+                            <?= form_error('price_discount')?>
 
                         </div>
                     </div>
@@ -72,7 +77,9 @@
                     <div class="form-group row ">
                         <label class="col-md-4 control-label" for="available_quantity">QUANTITY</label>
                         <div class="col-md-4">
-                            <input id="available_quantity" name="quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="text">
+                            <input id="available_quantity" name="quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" type="text">
+                            <?= form_error('quantity')?>
+                            
 
                         </div>
                     </div>
@@ -81,7 +88,8 @@
                     <div class="form-group row ">
                         <label class="col-md-4 control-label" for="product_weight">PRODUCT WEIGHT</label>
                         <div class="col-md-4">
-                            <input id="product_weight" name="product_weight" placeholder="PRODUCT WEIGHT" class="form-control input-md" required="" type="text">
+                            <input id="product_weight" name="product_weight" placeholder="PRODUCT WEIGHT" class="form-control input-md"  type="text">
+                            <?= form_error('product_weight')?>
 
                         </div>
                     </div>
@@ -89,7 +97,8 @@
                     <div class="form-group row ">
                         <label class="col-md-4 control-label" for="product_height">PRODUCT HEIGHT</label>
                         <div class="col-md-4">
-                            <input id="product_height" name="product_height" placeholder="PRODUCT HEIGHT" class="form-control input-md" required="" type="text">
+                            <input id="product_height" name="product_height" placeholder="PRODUCT HEIGHT" class="form-control input-md" type="text">
+                            <?= form_error('product_height')?>
 
                         </div>
                     </div>
@@ -109,7 +118,7 @@
                     <div class="form-group row ">
                         <label class="col-md-4 control-label" for="filebutton">Images</label>
                         <div class="col-md-4">
-                            <input id="file" name="image[]" class="input-file" type="file" multiple>
+                            <input id="file" name="image" class="input-file" type="file" multiple>
                         </div>
                     </div>
 
@@ -117,12 +126,13 @@
                     <div class="form-group row ">
 
 
-                        <button id="singlebutton" type="submit" name="singlebutton" class="btn btn-primary">Add Product</button>
+                        <button id="singlebutton" type="submit" name="add_product" value="1" class="btn btn-primary">Add Product</button>
 
                     </div>
 
                 </fieldset>
-            </form>
+            <!-- </form> -->
+            <?= form_close()?>
 
         </div>
 

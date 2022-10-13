@@ -49,7 +49,7 @@ class Admin extends CI_Controller
 	public function admin_login()
 	{
 		if ($this->session->userdata('isloggedin')) {
-			redirect('admin/admin_login');
+			redirect('admin/dashboard');
 		} else {
 
 			$email = $this->input->post('email');

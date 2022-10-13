@@ -10,10 +10,7 @@
     <title>All products </title>
 </head>
 
-<body id="page-top">
-
-
-
+<body id="page-top">    
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-0">All products :</h3>
@@ -53,7 +50,7 @@
                                 <tr>
 
                                     <th scope="col"><?= $i;?></th>
-                                    <td>Images</td>
+                                    <td><?php foreach($product['images'] as $image){ ?> <img class="d-block w-100 my-1 " style="height:50px ;" src="<?= base_url()?>uploads/<?= $image['image_name'] ?>"> <?php } ?></td>
                                     <td><?= $product['product_name']?> </td>
                                     <td><?= $product['product_slug']?> </td>
                                     <td><?= $product['category_name']?></td>

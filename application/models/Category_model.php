@@ -4,7 +4,7 @@ class Category_model extends CI_Model{
 
         $res = $this->db->get('category_table');
        
-        return $res->result();
+        return $res->result_array();
 
     }
     public function add_category($data){
